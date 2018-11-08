@@ -39,3 +39,27 @@ $ go test -bench Hello -count 10
 ### Examples
 * 出力の例を書いて、テストをすることができる。
 * コメント欄にサンプルコード書くような気持ちでテストが書ける（という理解）
+* godocにもサンプルコードが反映されるが、命名規則をきちんとしなければならない
+* サンプルは[こちら](examples/)
+```
+func Example（）{}}
+func ExampleF（）{...}
+func ExampleT（）{...}
+func ExampleT_M（）{...}
+```
+
+### Subtests and Sub-benchmarks
+* テストを改装にできるらしいが、使いどころがよくわからない
+
+### Main
+* Mainのゴルーチンで、テストの実行タイミングを制御できる。
+* テストケースの前や後に何かしらの処理を実行させたい場合に便利
+* `TestMain()` が存在する場合、 `go test` は `TestMain()` のみの実行となる
+* サンプルは[こちら](main/)
+
+```
+func TestMain(m *testing.M) {
+	// call flag.Parse() here if TestMain uses flags
+	os.Exit(m.Run())
+}
+```
