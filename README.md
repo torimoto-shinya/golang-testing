@@ -49,7 +49,7 @@ func ExampleT_M（）{...}
 ```
 
 ### Subtests and Sub-benchmarks
-* テストを改装にできるらしいが、使いどころがよくわからない
+* テストを階層にできるらしいが、使いどころがよくわからない
 
 ### Main
 * Mainのゴルーチンで、テストの実行タイミングを制御できる。
@@ -63,3 +63,9 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 ```
+
+### Assert
+* Goの `testing` では `assert` が提供されていない
+* サードパーティ製のライブラリは存在する
+  * https://godoc.org/github.com/stretchr/testify/assert
+* サンプルは[こちら](assert/)
